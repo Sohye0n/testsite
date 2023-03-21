@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>수정페이지입니다</title>
+</head>
+<body>
+<form th:action="'/post/edit/'+${post.postid}" method="post">
+    <input type="hidden" name="_method" value="put"/>
+    <input type="hidden" name="postid" th:value="${post.postid}">
+
+    제목: <input type="text" name="title" th:value="${post.title}"><br>
+    <textarea name="component" th:text="${post.component}"></textarea><br>
+    <input type="submit" value="수정">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+
+        <h1>마이페이지</h1>
+
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th> 작성한 글 목록</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="post : ${posts}">
+                <td>
+                    <a th:href="@{'/post/'+${post.postid}}">
+                        <span th:text="${post.title}"></span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th> 작성한 댓글 목록</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reply : ${replys}">
+                <td>
+                    <a th:href="@{'/post/'+${reply.board_id}}">
+                        <span>원글 보기</span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

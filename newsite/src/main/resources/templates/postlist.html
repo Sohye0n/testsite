@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>글 목록</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="post : ${posts}">
+                <td>
+                    <div th:if="${postStat.count}%5<5">
+                        <a th:href="@{'/post/'+${post.postid}}">
+                            <span th:text="${post.title}"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <div style="text-align:center">
+                <a th:href="'/postlist?pagenum='+${pagenum+1}" method="post">"next page"</a>
+            </div>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
